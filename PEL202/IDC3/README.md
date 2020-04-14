@@ -35,8 +35,10 @@ IRIS FLOWER DECISION TREE
 ### Algorithm
 The algorithm uses the information gain (IG) as the solely metric.
 On each interaction, the algorithm tries to find the best attribute that maximized the information gain of the data sets. Therefore, it is a greedy algorithm.
+
 Because the attributes' values are continues, i.e. the values can range from 0 until infinite, I've chosen to make binary partitions by classifying the classes that are less or equals than a given value or greater than the value.
 The binary partitions are parents with exactly 2 children, the left when the attribute is lower or equals, and the right when the attribute is greater.
+
 The algorithm finds the threshold, i.e the limit value used to classify an instance, by collecting metrics from the lowest value of an attribute until the maximum value, walking 0.1 by 0.1. The value 0.1 was carefully chosen based on the observation that the iris flower dataset has 2 decimals of precision, hence 0.1 is the minimum possible step value. Doing so may cause an explosion of tries before finding the best value, and could have been naive if the values range were too large, but they are not too large and the number of tries are computationally possible (it takes less than 1 second to compute everything on a Core i5). A more predictable approch would be to divide the value range in a linear space.
 
 ### Exercise
