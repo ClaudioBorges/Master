@@ -54,6 +54,7 @@ The plot below shows real dimension (x axys) against the inferred dimension (y a
 ![Image of Least Square](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_3.png)
 
 #### PCA
+The PCA (principal component analysis) was configured to reduce the number of dimension to 2, transforming the coordinating seeking to have the maximum variance.
 ```python
 PCA components: [[ 0.36138659 -0.08452251  0.85667061  0.3582892 ]
  [ 0.65658877  0.73016143 -0.17337266 -0.07548102]]
@@ -61,9 +62,13 @@ PCA explained variance: [4.22824171 0.24267075]
 PCA mean: [5.84333333 3.05733333 3.758      1.19933333]
 PCA explained variance ratio: [0.92461872 0.05306648]
 ```
+The PCA components indicate the petal length is the feature that has the largest variance and sepal length the second one. That way, the petal length and sepal length are the 2 most important component. The same is indicated in the variance. It is insteresting to notice the coordinates are centeres in the PCA means, for that reason we have negative values.
+
+The plot below is the PCA fitted and transformed:
 ![Image of PCA](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_4.png)
 
 #### LDA
+The LDA (Linear discriminant analysis) is similar to PCA in the way that it reduces the number of dimensions (in this case to 2), but it tries to maximize the distinction between the classes (instead of the variances).
 ```python
 LDA coef: [[  6.31475846  12.13931718 -16.94642465 -20.77005459]
  [ -1.53119919  -4.37604348   4.69566531   3.06258539]
@@ -71,17 +76,22 @@ LDA coef: [[  6.31475846  12.13931718 -16.94642465 -20.77005459]
 LDA intercept: [-15.47783673  -2.02197415 -33.53768674]
 LDA explained variance ratio: [0.9912126 0.0087874]
 ```
+The coefficients indicate the petal are the 2 most important features to distinguish the setosa and virginica. The 2 most important components of versicolor are the sepal width, and petal length, but not so good as the before.
+
+The plot below is the PCA fitted and transformed:
 ![Image of LDA](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_5.png)
 
 
 #### SVM
+In this SVM version I used the linear kernel, which produced 4 coefficients for each dimension.
+
 ```python
 SVM coef: [[-0.04625854  0.5211828  -1.00304462 -0.46412978]
  [-0.00722313  0.17894121 -0.53836459 -0.29239263]
  [ 0.59549776  0.9739003  -2.03099958 -2.00630267]]
 Linear regression intercept: [1.4528445  1.50771313 6.78097119]
 ```
-
+The plot below shows real dimension (x axys) against the inferred dimension (y axys).
 ![Image of SVM](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_6.png)
 
 
