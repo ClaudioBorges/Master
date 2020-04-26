@@ -12,7 +12,6 @@ In bash:
 source venv/bin/activate
 python3 ia-exercise-4.py
 ```
-
 ### Analysis
 The program uses the iris dataset provided by the scikit-learn. It uses 4 differents methods:
 1. Least Squares
@@ -20,7 +19,15 @@ The program uses the iris dataset provided by the scikit-learn. It uses 4 differ
 1. LDA (Linear Discriminant Analysis)
 1. SVM (Support Vector Machine)
 
+The Iris flower has 3 dimensions, setosa, versicolor, and virginica, and the dataset has 4 features, sepal length (cm), sepal width (cm), petal length (cm), and petal width (cm) as plot below:
+
+![Image of Iris Dataset](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_1.png)
+
+Intuitively, some features seem to influence more the distinguish between the dimension. The petal (either length and width) seems to be a good feature when classifying the setosa dimension. Other features and dimension are harder to distinguish.
+
 #### Least Squares
+The first comparion used the least squares method to classify the dimensions, through a vector of n dimension (i.e. `[1,0,0], [0,1,0], [0,0,1]`). In such case, there are 3 intercepts and a matrix of 3x4 representing the coeeficients.
+
 ```python
 Features: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
 Targets: ['setosa' 'versicolor' 'virginica']
@@ -30,12 +37,21 @@ Linear regression (classification) coef: [
  [-0.04587608  0.20276839  0.00398791  0.55177932]]
 Linear regression (classification) intercept: [ 0.11822289  1.57705897 -0.69528186]
 ```
+Looking at the produced coefficient, there is an indicative that a setosa is likely to have a higher sepal width and a lower petal length, while a virginica has the largest petal width, and a versicolor has the lowest sepal width.
+A feature's coefficient that is near 0 has a lower or no influence in the dimension regression.
 
+The result of such classification can is plot below:
+![Image of Least Square Classification](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_2.png)
+
+The second comparison uses the dimension as 0, 1 and 2 instead of classes, producing a single row of coefficient. 
 ```python
 Features: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
 Linear regression coef: [-0.11190585 -0.04007949  0.22864503  0.60925205]
 Linear regression intercept: 0.186495247206249
 ```
+
+The plot below shows real dimension (x axys) against the inferred dimension (y axys).
+![Image of Least Square](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_3.png)
 
 #### PCA
 ```python
@@ -45,6 +61,7 @@ PCA explained variance: [4.22824171 0.24267075]
 PCA mean: [5.84333333 3.05733333 3.758      1.19933333]
 PCA explained variance ratio: [0.92461872 0.05306648]
 ```
+![Image of PCA](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_4.png)
 
 #### LDA
 ```python
@@ -54,6 +71,8 @@ LDA coef: [[  6.31475846  12.13931718 -16.94642465 -20.77005459]
 LDA intercept: [-15.47783673  -2.02197415 -33.53768674]
 LDA explained variance ratio: [0.9912126 0.0087874]
 ```
+![Image of LDA](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_5.png)
+
 
 #### SVM
 ```python
@@ -62,6 +81,9 @@ SVM coef: [[-0.04625854  0.5211828  -1.00304462 -0.46412978]
  [ 0.59549776  0.9739003  -2.03099958 -2.00630267]]
 Linear regression intercept: [1.4528445  1.50771313 6.78097119]
 ```
+
+![Image of SVM](https://github.com/ClaudioBorges/Master/blob/master/PEL202/StatisticalLearning/img/Figure_6.png)
+
 
 ### Exercise
 Use as funções do Scikit-learn para os Minimos Quadrados, PCA, LDA e SVM e use para a classificação dos dados de Iris de Fisher.
