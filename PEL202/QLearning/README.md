@@ -52,6 +52,8 @@ Number of episodes:  1265
 ```
 which is the optimal action policy and state-value
 
+The Optimal policy PI is an array of length 6. Each position contains the next optimal position. The 0 represents that  there is no next position.
+
 ### Exercise
 - Implemente o Q-learning para resolver o problema do mundo de grades.
 - 3 x 2
